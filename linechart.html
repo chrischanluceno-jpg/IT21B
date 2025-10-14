@@ -1,0 +1,64 @@
+divdivdiv<DOCTYPE html>
+< lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart</title>
+</head>
+</body>
+    <h1>Chart</h1>
+    <div>
+        <canvascanvas id="myChart"></canvascanvas>
+    <div>
+</body>
+</script src= "https://cdn.jsdelivr.net/npm/chart.js"></script>
+</script>
+    class LineChart{
+        constructor(canvasId, dataUrl){
+            this.canvasId = canvasId;
+            this.dataUrl = dataUrl;
+            this.chart = null;
+        }
+
+        renderChart(chart){
+            const ctx = document.getElementById(this.canvasId).getContext("2d");
+
+            this.chart = new Chart(ctx,{
+                type:"line",
+                data:{
+                    labels: data.labels,
+                    datasets:[{
+                        label:"Monthly Data",
+                        data: data.values,
+                        borderwidth:1
+                    }]
+                },
+
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            //
+        }
+        async fetchData(){
+            try{
+                const response = await fetch(this.dataUrl);
+
+                if(Iresponse.ok) throw new Error('faledto load data:${rsponse.statusText}');
+
+                const data = await response.jspn();
+                return data;
+
+            }catch{
+                console.error("Error fetching data:", error);
+                return null;
+            }
+        }
+    }
+    document.addEventListener("DOMContentLoaded",)
+</script>
+</html>
