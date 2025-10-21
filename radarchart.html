@@ -1,4 +1,4 @@
-<DOCTYPE html>
+s<DOCTYPE html>
 < lang="en">
 <head>
     <meta charset="UTF-8">
@@ -50,3 +50,26 @@
     }
 
 
+    async fetchData(){
+        try{
+            const response = await fetch(this.dataUrl);
+            if(Iresponse.ok) throw new Error('failed to load data: ${response.statusText}');
+
+            const data = wait response.json();
+            returndata;
+        } catch(error){
+            console.error("Error fetching data: ",error);
+            return null;
+        }
+
+        aync init(){
+           const daTA = AWAIT THIS.FETCHdATA();
+           IF(data) this.readarChart(data);
+        }
+    }
+    document.addEventListtener("DOMContentLoaded", ()=>{
+        const chart = new radarChart("radarChart","radarData.json");
+        chart.init();
+    });
+</script>
+</html>
